@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- css -->
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="expenseInput">
+        <h1>Expense Tracker</h1>
+        <h2>Add a new item:</h2>
+        <form data-expense-form>
+          <label for="expenseText">Name:</label>
+          <input
+            type="text"
+            id="expenseText"
+            placeholder="Where was the expense made?"
+          />
+          <div class="details">
+            <div class="left-col">
+              <label for="expenseDate">Date:</label>
+              <input type="date" id="expenseDate" placeholder="mm/dd/yyyy" />
+            </div>
+            <div class="right-col">
+              <label for="expenseAmount">Amount:</label>
+              <input type="number" id="expenseAmount" />
+            </div>
+          </div>
+          <p id="errMsg" class="errMsg none">
+            Please fill in all the fields appropriately.
+          </p>
+          <button data-add-expense type="submit" class="mainBtn">
+            Add Expense
+          </button>
+        </form>
+      </section>
+      <section class="expenseTable">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Date</th>
+              <th>Amount</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody data-tbody>
+            <tr data-no-expense>
+              <td colspan="4">No expenses added yet!</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+    <template data-expense-template>
+      <tr>
+        <td data-expense-name></td>
+        <td data-expense-date></td>
+        <td data-expense-amount></td>
+        <td class="remove">
+          <button data-remove-expense>
+            <i class="fa-solid fa-xmark"></i>
+        </button></td>
+      </tr>
+    </template>
+  </body>
+</html>
